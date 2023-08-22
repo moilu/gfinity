@@ -15,7 +15,7 @@
     </thead>
     <tbody>
         <template v-for="(data, idx) in table_data">
-          <tr :key="idx" class="bg-[#101010] border-b dark:border-neutral-500">
+          <tr :key="idx" class="bg-[#101010] border-b border-black">
             <td class="whitespace-nowrap px-6 py-4 font-medium">{{ data.name }}</td>
             <td class="whitespace-nowrap px-6 py-4">
               <div class="bg-white rounded p-1 text-black text-center">{{ data.ovr }}</div>
