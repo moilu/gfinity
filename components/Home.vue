@@ -1,6 +1,10 @@
 <template>
-  <div class="text-red-900">Hi</div>
+  <div class="grid">
+    <Navigation />
+    <ContentTable />
+  </div>
 </template>
 <script lang="ts">
+
 
 </script>
