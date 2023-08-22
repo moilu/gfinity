@@ -14,38 +14,38 @@
         </tr>
     </thead>
     <tbody>
-        <template v-for="(data, idx) in table_data">
+        <template v-for="(card, idx) in fifaCards">
           <tr :key="idx" class="bg-[#101010] border-b border-black">
-            <td class="whitespace-nowrap px-6 py-4 font-medium">{{ data.name }}</td>
+            <td class="whitespace-nowrap px-6 py-4 font-medium">{{ card.name }}</td>
             <td class="whitespace-nowrap px-6 py-4">
-              <div class="bg-white rounded p-1 text-black text-center">{{ data.ovr }}</div>
+              <div class="bg-white rounded p-1 text-black text-center">{{ card.rating }}</div>
             </td>
             <td class="whitespace-nowrap px-6 py-4">
-              <div class="bg-black rounded p-1 text-center">{{ data.pos }}</div>
+              <div class="bg-black rounded p-1 text-center">{{ card.position }}</div>
             </td>
             <td class="whitespace-nowrap px-6 py-4">
-              <div class="bg-black rounded p-1 text-center">{{ data.type }}</div>
+              <div class="bg-black rounded p-1 text-center">{{ card.position }}</div>
             </td>
             <td class="whitespace-nowrap px-6 py-4">
-              <div class="border border-white rounded p-1 text-center">{{ data.pac }}</div>
+              <div class="border border-white rounded p-1 text-center">{{ card.statistics.pace.average }}</div>
             </td>
             <td class="whitespace-nowrap px-6 py-4">
-              <div class="border border-white rounded p-1 text-center">{{ data.sho }}</div>
+              <div class="border border-white rounded p-1 text-center">{{ card.statistics.shooting.average }}</div>
             </td>
             <td class="whitespace-nowrap px-6 py-4">
-              <div class="border border-white rounded p-1 text-center">{{ data.pas }}</div>
+              <div class="border border-white rounded p-1 text-center">{{ card.statistics.passing.average }}</div>
             </td>
             <td class="whitespace-nowrap px-6 py-4">
-              <div class="border border-white rounded p-1 text-center">{{ data.dri }}</div>
+              <div class="border border-white rounded p-1 text-center">{{ card.statistics.dribbling.average }}</div>
             </td>
             <td class="whitespace-nowrap px-6 py-4">
-              <div class="border border-white rounded p-1 text-center">{{ data.def }}</div>
+              <div class="border border-white rounded p-1 text-center">{{ card.statistics.defense.average }}</div>
             </td>
             <td class="whitespace-nowrap px-6 py-4">
-              <div class="border border-white rounded p-1 text-center">{{ data.phy }}</div>
+              <div class="border border-white rounded p-1 text-center">{{ card.statistics.physical.average }}</div>
             </td>
             <td class="whitespace-nowrap px-6 py-4">
-              <div class="bg-black rounded p-1 text-center">{{ data.wr }}</div>
+              <div class="bg-black rounded p-1 text-center">{{ card.workRatesAttacking }}</div>
             </td>
           </tr>
         </template>
@@ -54,6 +54,8 @@
 </div>
 </template>
 <script>
+import { client } from '../sanity.js'
+
 export default {
   name: 'ContentTable',
   data() {
@@ -71,48 +73,17 @@ export default {
         'PHY',
         'WR'
       ],
-      table_data: [
-        {
-          name: 'Lionel Messi',
-          ovr: '93',
-          pos: 'RW',
-          type: 'RW',
-          pac: '85',
-          sho: '92',
-          pas: '91',
-          dri: '1',
-          def: '1',
-          phy: '1',
-          wr: '1'
-        },
-        {
-          name: 'Cristiano Ronaldo',
-          ovr: '92',
-          pos: 'ST',
-          type: 'ST',
-          pac: '90',
-          sho: '93',
-          pas: '82',
-          dri: '84',
-          def: '35',
-          phy: '85',
-          wr: '2'
-        },
-        {
-          name: 'Neymar Jr.',
-          ovr: '91',
-          pos: 'LW',
-          type: 'LW',
-          pac: '91',
-          sho: '85',
-          pas: '87',
-          dri: '92',
-          def: '20',
-          phy: '58',
-          wr: '3'
-        }
-      ]
+      fifaCards: []
     }
+  },
+  methods: {
+    async getPosts() {
+      const fifaCards = await client.fetch('*[_type == "fifaCard"]')
+      return fifaCards
+    }
+  },
+  async created() {
+    this.fifaCards = await this.getPosts();
   }
 }
 
