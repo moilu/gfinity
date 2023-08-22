@@ -1,7 +1,7 @@
 <template>
 <div class="h-screen overflow-auto md:mx-auto pb-2 md:px-0 w-full md:w-[90%] 2xl:w-[55%]">
-  <table class="text-white w-full">
-    <thead class="bg-black">
+  <table class="relative text-white w-full">
+    <thead class="bg-black sticky top-0">
         <tr>
           <template v-for="(header, idx) in table_headers">
             <th :key="idx" class="px-6 py-4 text-sm font-semibold text-center">
@@ -45,7 +45,7 @@
               <div class="border border-white rounded p-1 text-center">{{ card.statistics.physical.average }}</div>
             </td>
             <td class="whitespace-nowrap px-6 py-4">
-              <div class="bg-black rounded p-1 text-center">{{ card.workRatesAttacking }}</div>
+              <div class="bg-black rounded p-1 text-center">{{ `${card.workRatesAttacking[0]} / ${card.workRatesDefensive[0]}` }}</div>
             </td>
           </tr>
         </template>
