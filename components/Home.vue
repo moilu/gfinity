@@ -1,6 +1,5 @@
 <template>
   <div class="grid">
-    <Navigation />
     <ContentTable />
   </div>
 </template>

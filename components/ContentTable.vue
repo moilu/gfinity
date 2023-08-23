@@ -16,7 +16,9 @@
     <tbody>
         <template v-for="(card, idx) in fifaCards">
           <tr :key="idx" class="bg-[#101010] border-b border-black">
-            <td class="whitespace-nowrap px-6 py-4 font-medium">{{ card.name }}</td>
+            <NuxtLink to="/player">
+              <td class="whitespace-nowrap px-6 py-4 font-medium">{{ card.name }}</td>
+            </NuxtLink>
             <td class="whitespace-nowrap px-6 py-4">
               <div class="bg-white rounded p-1 text-black text-center">{{ card.rating }}</div>
             </td>
