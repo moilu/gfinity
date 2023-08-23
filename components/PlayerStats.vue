@@ -5,7 +5,7 @@
       <div class="grid">
         <div class="flex justify-between py-2 border-t-2 border-b-2 border-y-white">
           <p>PAC</p>
-          <!-- <p>{{ playerStats.pace.average }}</p> -->
+          <p>{{ playerStats.pace.average }}</p>
         </div>
         <div class="flex gap-4 py-2">
           <p>Acceleration</p>
@@ -19,7 +19,7 @@
       <div class="grid">
         <div class="flex justify-between py-2 border-t-2 border-b-2 border-y-white">
           <p>SHO</p>
-          <!-- <p>{{ playerStats.shooting.average }}</p> -->
+          <p>{{ playerStats.shooting.average }}</p>
         </div>
         <div class="flex gap-4 py-2">
           <p>Positioning</p>
@@ -49,7 +49,7 @@
       <div class="grid">
         <div class="flex justify-between py-2 border-t-2 border-b-2 border-y-white">
           <p>PAS</p>
-          <!-- <p>{{ playerStats.passing.average }}</p> -->
+          <p>{{ playerStats.passing.average }}</p>
         </div>
         <div class="flex gap-4 py-2">
           <p>Crossing</p>
@@ -79,7 +79,7 @@
       <div class="grid">
         <div class="flex justify-between py-2 border-t-2 border-b-2 border-y-white">
           <p>DRI</p>
-          <!-- <p>{{ playerStats.dribbling.average }}</p> -->
+          <p>{{ playerStats.dribbling.average }}</p>
         </div>
         <div class="flex gap-4 py-2">
           <p>Agility</p>
@@ -109,7 +109,7 @@
       <div class="grid">
         <div class="flex justify-between py-2 border-t-2 border-b-2 border-y-white">
           <p>DEF</p>
-          <!-- <p>{{ playerStats.defense.average }}</p> -->
+          <p>{{ playerStats.defense.average }}</p>
         </div>
         <div class="flex gap-4 py-2">
           <p>Defensive Awareness</p>
@@ -139,7 +139,7 @@
       <div class="grid">
         <div class="flex justify-between py-2 border-t-2 border-b-2 border-y-white">
           <p>PHY</p>
-          <!-- <p>{{ playerStats.physical.average }}</p> -->
+          <p>{{ playerStats.physical.average }}</p>
         </div>
         <div class="flex gap-4 py-2">
           <p>Aggression</p>
@@ -166,8 +166,13 @@
 export default {
   name: 'PlayerStats',
   props: [ 'playerStats' ],
-  mounted() {
-    console.log(this.playerStats);
-  }
+  // computed: {
+  //   playerStats() {
+  //     return this.stats
+  //   }
+  // },
+  // mounted() {
+  //   console.log(this.playerStats);
+  // }
 }
 </script>
