@@ -80,7 +80,8 @@ export default {
   },
   methods: {
     async getPosts() {
-      const fifaCards = await client.fetch('*[_type == "fifaCard"]')
+      const fifaCards = await client.fetch('*[_type == "fifaCard"]');
+      console.log(fifaCards[0])
       return fifaCards
     }
   },
