@@ -14,11 +14,12 @@ export default {
   },
   methods: {
     async getPosts() {
-      const fifaCards = await client.fetch('*[_slug == "aaron-ramsey-rangers-80-ovr"]');
+      const fifaCards = await client.fetch(`*[_id == "${this.$route.params.id}"]`);
+      console.log(this.$route.params.id)
       return fifaCards
     }
   },
-  async created() {
+  async mounted() {
     this.fifaCards = await this.getPosts();
   }
 }
